@@ -1,9 +1,8 @@
-
        IDENTIFICATION DIVISION.
        PROGRAM-ID. VARIAVEIS.
       *=================================================================
       *== AUTOR: Francisco Alexandre
-      *== OBJETIVO: Primeiro contato com COBOL
+      *== OBJETIVO: MASCARAS PARA FORMATAÇÃO DE VARIAVES
       *== DATA: 17/09/2024
       *== OBS:
       *=================================================================
@@ -16,24 +15,21 @@
        DATA DIVISION.
        FILE SECTION.
        WORKING-STORAGE SECTION.
-       77  WRK-NOME       PIC X(12)     VALUE SPACES.
-       77  WRK-IDADE      PIC 99        VALUE ZEROS.
-       01  WRK-GENERO     PIC X(3)      VALUE SPACES.
-       77  WRK-SALARIO    PIC 9(04)V99  VALUE ZEROS.
+
+       77  WRK-VALOR1          PIC 9(3)V99        VALUE ZEROS.
+       77  WRK-VALOR2          PIC 9(3)V99        VALUE ZEROS.
+       77  WRK-RESULTADO       PIC S9(3)V99       VALUE ZEROS.
+       77  WRK-RESULTADO-ED    PIC -ZZ9,99         VALUE ZEROS.
        PROCEDURE DIVISION.
        0001-RECEBE   SECTION.
-           DISPLAY "DIGITE NOME"
-             ACCEPT WRK-NOME.
-           DISPLAY "DIGITE A IDADE"
-             ACCEPT WRK-IDADE.
-           DISPLAY "DIGITE O GENERO"
-             ACCEPT WRK-GENERO.
-           DISPLAY "DIGITE O SALARIO"
-             ACCEPT WRK-SALARIO.
+           DISPLAY "DIGITE O VALOR 1"
+             ACCEPT WRK-VALOR1.
+           DISPLAY "DIGITE O VALOR 2"
+             ACCEPT WRK-VALOR2.
+           COMPUTE WRK-RESULTADO = WRK-VALOR1 - WRK-VALOR2.
+           MOVE WRK-RESULTADO TO WRK-RESULTADO-ED.
        0002-MOSTRA   SECTION.
-           DISPLAY "NOME: " WRK-NOME "IDADE: " WRK-IDADE
-           DISPLAY "GENERO: " WRK-GENERO.
-           DISPLAY "SALARIO: " WRK-SALARIO.
+           DISPLAY "RESULTADO: " WRK-RESULTADO-ED.
 
        0003-FINALIZAR SECTION.
 
